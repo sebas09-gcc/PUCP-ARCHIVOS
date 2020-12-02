@@ -213,19 +213,22 @@ func main(){
 	fmt.Println("¿Cual es el nivel maximo de un curso que ha llevado?")
 	fmt.Scanf("%d", &nivelmax) 
 
-  // de esta manera tendremos hasta el nivel maximo d
+  // de esta manera tendremos hasta el nivel maximo de curso que llevo, todos los niveles que estan adelante se rellenarian con un 0 de no aprobado, y los que estan dentro del maximo nivel y anteriores se rellenarian con 1's de aprobado
   fmt.Println("¿Ha jalado usted algun curso?(s/n)")
   fmt.Scanf("%s", &jalado)
   if(jalado=="s"){
     fmt.Println("¿Cuantos cursos ha jalado y aun no ha aprobado (CONTAR SOLO DESDE EL NIVEL MAXIMO HACIA ATRAS)")
     fmt.Scanf("%d", &cantJala)
+    // con esto no es encargamos de saber cuantos cursos a jalado el alumn o sin consultar cuales dentro de los nodos
     fmt.Println("¿Cuantos cursos aun no ha llevado(CONTAR SOLO DESDE EL NIVEL MAXIMO HACIA ATRAS)")
     fmt.Scanf("%d", &cantNoLlevado)
+    //tambien nos encargamos de saber cuales se ha salteado y rellenamos con 0's de no aprobados aun 
     fmt.Println("Ingrese el codigo del/los cursos que ha jalado")
     for i := 0; i < cantJala+cantNoLlevado; i++ {
         fmt.Scanf("%s", &codigo)
         list = append(list, codigo)
   	}
+    //aqui es donde aquellos codigos de curso que recibimos , los buscamos y cambiamos su estado a  0 de no aprobado, de esta manera tendriamos todos los cursos aprobados y aquellos que se han pateado de la manera mas eficiente y sin pedir demasiado al usuario
     fmt.Println("Procesando.......")
   }else{
     fmt.Println("Procesando.......")
